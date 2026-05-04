@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spanish 122 · Semana 5 · Midterm Review · Capítulos 5–6</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243561;
+    --terracotta: #c4522a;
+    --terra-light: #e07048;
+    --gold: #d4a537;
+    --gold-light: #f0c45a;
+    --cream: #fdf6ec;
+    --cream-dark: #f4e8d4;
+    --sage: #5a7a5e;
+    --sage-light: #7ba080;
+    --text: #2a1f14;
+    --text-light: #6b5a45;
+    --correct: #2d6e3e;
+    --wrong: #9e2a2a;
+    --correct-bg: #e8f5ec;
+    --wrong-bg: #fde8e8;
+    --tile-shadow: 0 4px 20px rgba(26,39,68,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background-color: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ─────────────────────────────── */
+  header {
+    background: var(--navy);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  }
+  .header-inner {
+    display: flex; align-items: center; gap: 20px;
+    padding: 14px 32px; max-width: 1100px; margin: 0 auto;
+  }
+  .header-badge {
+    background: var(--terracotta); color: white;
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    padding: 4px 10px; border-radius: 3px; letter-spacing: 0.08em; white-space: nowrap;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif; font-size: 1.25rem;
+    font-weight: 700; letter-spacing: 0.01em; flex: 1;
+  }
+  .header-subtitle {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: rgba(255,255,255,0.5); letter-spacing: 0.1em;
+    text-transform: uppercase; white-space: nowrap;
+  }
+
+  /* ── NAV TABS ──────────────────────────── */
+  nav {
+    background: var(--navy-light);
+    border-bottom: 3px solid var(--gold);
+    overflow-x: auto;
+    position: sticky; top: 60px; z-index: 90;
+  }
+  .nav-inner {
+    display: flex; gap: 0; max-width: 1100px; margin: 0 auto; padding: 0 16px;
+  }
+  nav button {
+    background: none; border: none; color: rgba(255,255,255,0.6);
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 12px 18px; cursor: pointer;
+    border-bottom: 3px solid transparent; margin-bottom: -3px;
+    white-space: nowrap; transition: color 0.2s, border-color 0.2s;
+  }
+  nav button:hover { color: white; }
+  nav button.active {
+    color: var(--gold-light); border-bottom-color: var(--gold-light);
+  }
+
+  /* ── MAIN ───────────────────────────────── */
+  main {
+    max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px;
+  }
+  section { display: none; }
+  section.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── WEEK HERO ──────────────────────────── */
+  .week-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #2d4a7a 100%);
+    color: white; border-radius: 12px; padding: 36px 40px;
+    margin-bottom: 32px; position: relative; overflow: hidden;
+  }
+  .week-hero::before {
+    content: 'SEMANA 5'; position: absolute; right: 32px; top: 50%;
+    transform: translateY(-50%); font-family: 'Playfair Display', serif;
+    font-size: 6rem; font-weight: 700; color: rgba(255,255,255,0.06);
+    line-height: 1; pointer-events: none;
+  }
+  .week-hero h1 {
+    font-family: 'Playfair Display', serif; font-size: 2rem;
+    margin-bottom: 8px; position: relative;
+  }
+  .week-hero p {
+    font-style: italic; color: rgba(255,255,255,0.7); font-size: 1rem;
+  }
+  .topic-chips {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;
+    position: relative;
+  }
+  .chip {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white; font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; padding: 5px 12px;
+    border-radius: 20px; letter-spacing: 0.05em;
+  }
+  .chip.exam-chip {
+    background: var(--terracotta); border-color: var(--terra-light);
+  }
+
+  /* ── SECTION TITLES ────────────────────── */
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: 1.5rem;
+    color: var(--navy); margin-bottom: 6px;
+    border-bottom: 2px solid var(--gold); padding-bottom: 8px;
+    display: inline-block;
+  }
+  .section-meta {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--text-light); letter-spacing: 0.05em;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+
+  /* ── SCHEDULE TABLE ────────────────────── */
+  .schedule-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    border-radius: 12px; overflow: hidden; box-shadow: var(--tile-shadow);
+    background: white; margin-bottom: 32px;
+  }
+  .schedule-table th {
+    background: var(--navy); color: white;
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 14px 12px; text-align: left;
+  }
+  .schedule-table td {
+    padding: 14px 12px; vertical-align: top;
+    border-bottom: 1px solid var(--cream-dark); font-size: 0.9rem;
+  }
+  .schedule-table tr:last-child td { border-bottom: none; }
+  .schedule-table tr:hover td { background: var(--cream); }
+  .day-type {
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+  }
+  .type-self { background: #e8e0f5; color: #6a47a8; }
+  .type-class { background: #fde4d4; color: var(--terracotta); }
+  .type-exam { background: #ffe1e1; color: var(--wrong); font-weight: 700; }
+  .day-focus { font-weight: 600; color: var(--navy); }
+  .hw-note {
+    font-style: italic; color: var(--text-light); font-size: 0.85rem;
+  }
+
+  /* ── TIMING BOXES ──────────────────────── */
+  .timing-box {
+    background: white; border-radius: 12px; padding: 0;
+    box-shadow: var(--tile-shadow); margin-bottom: 24px; overflow: hidden;
+  }
+  .timing-header {
+    background: var(--navy); color: white; padding: 14px 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .timing-header h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  }
+  .timing-header small {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
+  }
+  .timing-body { padding: 16px 24px; }
+  .timing-row {
+    display: grid; grid-template-columns: 110px 1fr;
+    gap: 16px; padding: 12px 0;
+    border-bottom: 1px dashed var(--cream-dark);
+  }
+  .timing-row:last-child { border-bottom: none; }
+  .timing-time {
+    font-family: 'Space Mono', monospace; font-size: 0.75rem;
+    color: var(--terracotta); font-weight: 700;
+  }
+
+  /* ── RESOURCE CARDS ────────────────────── */
+  .resource-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px; margin-bottom: 24px;
+  }
+  .resource-card {
+    background: white; border-radius: 8px; padding: 16px 18px;
+    box-shadow: var(--tile-shadow); border-left: 4px solid var(--gold);
+  }
+  .resource-card .res-day {
+    font-family: 'Space Mono', monospace; font-size: 0.6rem;
+    color: var(--terracotta); letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .resource-card h4 {
+    font-family: 'Playfair Display', serif; font-size: 1rem;
+    color: var(--navy); margin-bottom: 8px;
+  }
+  .resource-card a {
+    display: block; font-size: 0.82rem; color: var(--navy);
+    text-decoration: none; margin-bottom: 4px;
+    border-bottom: 1px dotted var(--cream-dark); padding-bottom: 4px;
+  }
+  .resource-card a:hover { color: var(--terracotta); }
+
+  /* ── VOCAB CARDS (FLIP) ────────────────── */
+  .flip-tip {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: var(--text-light); margin-bottom: 16px; letter-spacing: 0.05em;
+  }
+  .vocab-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px; margin-bottom: 28px;
+  }
+  .vocab-card {
+    background: transparent; perspective: 1000px;
+    height: 90px; cursor: pointer;
+  }
+  .vocab-card-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform 0.5s; transform-style: preserve-3d;
+  }
+  .vocab-card.flipped .vocab-card-inner { transform: rotateY(180deg); }
+  .vocab-front, .vocab-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px; padding: 14px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    box-shadow: var(--tile-shadow);
+  }
+  .vocab-front {
+    background: white; border: 1px solid var(--cream-dark);
+  }
+  .vocab-front .es {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: var(--navy); font-size: 0.95rem;
+  }
+  .vocab-front .hint {
+    font-family: 'Space Mono', monospace; font-size: 0.55rem;
+    color: var(--text-light); letter-spacing: 0.06em;
+    margin-top: 6px; text-transform: uppercase;
+  }
+  .vocab-back {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--navy); transform: rotateY(180deg);
+  }
+  .vocab-back .en {
+    font-family: 'Source Serif 4', serif; font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .subchapter-label {
+    display: inline-block; background: var(--navy); color: white;
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    padding: 3px 10px; border-radius: 4px;
+    letter-spacing: 0.08em; margin-right: 10px; vertical-align: middle;
+  }
+  .subchapter-heading {
+    font-family: 'Playfair Display', serif; color: var(--navy);
+    font-size: 1.05rem; margin-bottom: 12px; margin-top: 8px;
+    display: flex; align-items: center;
+  }
+
+  /* ── GRAMMAR BOXES ─────────────────────── */
+  .grammar-box {
+    background: white; border-radius: 12px; box-shadow: var(--tile-shadow);
+    margin-bottom: 24px; overflow: hidden;
+  }
+  .grammar-header {
+    background: linear-gradient(90deg, var(--terracotta) 0%, var(--terra-light) 100%);
+    color: white; padding: 14px 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .grammar-icon {
+    background: rgba(255,255,255,0.25); border-radius: 4px;
+    padding: 3px 8px; font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.05em; white-space: nowrap;
+  }
+  .grammar-header h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+  }
+  .grammar-header .gram-subtitle {
+    font-style: italic; color: rgba(255,255,255,0.8);
+    font-size: 0.8rem; margin-left: auto;
+  }
+  .grammar-body { padding: 20px 24px; }
+  .pronoun-table {
+    width: 100%; border-collapse: collapse;
+    margin-top: 12px; margin-bottom: 16px;
+  }
+  .pronoun-table th, .pronoun-table td {
+    padding: 8px 12px; text-align: left;
+    border-bottom: 1px solid var(--cream-dark); font-size: 0.85rem;
+  }
+  .pronoun-table th {
+    background: var(--cream); font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--text-light);
+  }
+  .pronoun-table td:first-child {
+    font-style: italic; color: var(--text-light);
+  }
+  .pronoun-table td:nth-child(n+2) {
+    font-weight: 600; color: var(--navy);
+  }
+  .example-block {
+    background: var(--cream); border-left: 3px solid var(--gold);
+    padding: 10px 14px; margin: 12px 0;
+    border-radius: 0 6px 6px 0; font-size: 0.88rem;
+  }
+  .example-block strong { color: var(--terracotta); }
+
+  /* ── EXERCISES ─────────────────────────── */
+  .exercise-box {
+    background: white; border-radius: 12px;
+    box-shadow: var(--tile-shadow); margin-bottom: 24px; overflow: hidden;
+  }
+  .exercise-header {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: white; padding: 14px 24px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .exercise-header h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  }
+  .exercise-header small {
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
+  }
+  .exercise-body { padding: 20px 24px; }
+  .exercise-instructions {
+    font-style: italic; color: var(--text-light);
+    font-size: 0.9rem; margin-bottom: 18px;
+    padding-bottom: 12px; border-bottom: 1px dashed var(--cream-dark);
+  }
+  .exercise-item {
+    display: flex; gap: 14px; padding: 12px 14px;
+    margin-bottom: 8px; border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .exercise-item.correct { background: var(--correct-bg); }
+  .exercise-item.wrong { background: var(--wrong-bg); }
+  .item-num {
+    font-family: 'Space Mono', monospace; font-size: 0.85rem;
+    color: var(--terracotta); font-weight: 700;
+    flex-shrink: 0; padding-top: 2px;
+  }
+  .item-text { flex: 1; }
+  .feedback {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    margin-top: 6px; display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.correct { color: var(--correct); }
+  .feedback.wrong { color: var(--wrong); }
+
+  /* fill-in style */
+  .fill-sentence {
+    font-size: 0.92rem; line-height: 2.2;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  }
+  .blank-input {
+    background: white; border: none;
+    border-bottom: 2px solid var(--navy);
+    padding: 2px 8px; font-family: 'Source Serif 4', serif;
+    font-style: italic; font-size: 0.9rem; color: var(--navy);
+    min-width: 110px; width: auto;
+    transition: border-color 0.2s;
+  }
+  .blank-input:focus { outline: none; border-bottom-color: var(--gold); }
+  .blank-input.correct-input { border-bottom-color: var(--correct); color: var(--correct); }
+  .blank-input.wrong-input { border-bottom-color: var(--wrong); color: var(--wrong); }
+  .verb-hint {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--terracotta); background: #fde4d4;
+    padding: 2px 8px; border-radius: 4px; white-space: nowrap;
+  }
+
+  /* buttons */
+  .btn-row {
+    display: flex; gap: 12px; margin-top: 20px;
+    padding-top: 16px; border-top: 1px solid var(--cream-dark);
+    align-items: center;
+  }
+  .btn {
+    font-family: 'Space Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 10px 20px; border-radius: 6px;
+    border: none; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-check { background: var(--navy); color: white; }
+  .btn-check:hover { background: var(--navy-light); transform: translateY(-1px); }
+  .btn-reset { background: var(--cream-dark); color: var(--text); }
+  .btn-reset:hover { background: #e0d0b8; }
+  .score-badge {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    padding: 6px 14px; border-radius: 20px;
+    margin-left: auto; display: none;
+    align-items: center; gap: 6px;
+  }
+  .score-badge.show { display: flex; }
+  .score-badge.good { background: var(--correct-bg); color: var(--correct); }
+  .score-badge.ok { background: #fff3cd; color: #856404; }
+  .score-badge.retry { background: var(--wrong-bg); color: var(--wrong); }
+
+  /* matching letter input */
+  .match-row {
+    display: grid; grid-template-columns: 220px 90px 1fr;
+    gap: 12px; padding: 8px 0;
+    border-bottom: 1px solid var(--cream-dark); align-items: center;
+  }
+  .match-row:last-child { border-bottom: none; }
+  .match-spanish {
+    font-style: italic; color: var(--navy); font-size: 0.92rem;
+  }
+  .match-input {
+    width: 60px; padding: 6px 8px; text-align: center;
+    border: 2px solid var(--cream-dark); border-radius: 6px;
+    font-family: 'Space Mono', monospace; font-size: 0.85rem;
+    font-weight: 700; text-transform: lowercase;
+    background: white;
+  }
+  .match-input:focus { outline: none; border-color: var(--gold); }
+  .match-input.correct-input { border-color: var(--correct); background: var(--correct-bg); color: var(--correct); }
+  .match-input.wrong-input { border-color: var(--wrong); background: var(--wrong-bg); color: var(--wrong); }
+  .match-letter {
+    font-family: 'Space Mono', monospace; font-weight: 700;
+    color: var(--terracotta); font-size: 0.85rem;
+  }
+  .match-english { font-size: 0.92rem; color: var(--text); }
+
+  /* sub-section divider inside exercise */
+  .sub-divider {
+    margin: 18px 0 14px; padding: 10px 14px;
+    background: linear-gradient(90deg, var(--cream) 0%, transparent 100%);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 4px 4px 0;
+  }
+  .sub-divider .sub-code {
+    display: inline-block; background: var(--navy); color: white;
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    padding: 3px 9px; border-radius: 4px;
+    letter-spacing: 0.08em; margin-right: 10px;
+  }
+  .sub-divider .sub-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--navy); font-size: 1rem; font-weight: 700;
+  }
+  .sub-divider .sub-en {
+    font-style: italic; color: var(--text-light);
+    font-size: 0.82rem; margin-top: 4px; display: block;
+    padding-left: 0;
+  }
+
+  /* reading passage */
+  .reading-passage {
+    background: var(--cream); border: 2px solid var(--gold-light);
+    border-radius: 8px; padding: 22px 26px; margin-bottom: 20px;
+  }
+  .reading-passage h4 {
+    font-family: 'Playfair Display', serif; color: var(--navy);
+    font-size: 1.15rem; text-align: center; margin-bottom: 4px;
+  }
+  .reading-passage .author {
+    text-align: center; font-style: italic;
+    color: var(--text-light); font-size: 0.85rem; margin-bottom: 14px;
+  }
+  .reading-passage p {
+    font-size: 0.95rem; line-height: 1.8; text-align: justify;
+  }
+  .reading-passage .preterite {
+    font-weight: 700; color: var(--terracotta);
+  }
+  .reading-key {
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    color: var(--text-light); margin-top: 12px; text-align: center;
+  }
+
+  /* True/False */
+  .tf-row {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 16px; padding: 10px 0;
+    border-bottom: 1px solid var(--cream-dark); align-items: center;
+  }
+  .tf-row:last-child { border-bottom: none; }
+  .tf-statement { font-size: 0.92rem; }
+  .tf-buttons { display: flex; gap: 8px; }
+  .tf-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 2px solid var(--cream-dark); background: white;
+    font-family: 'Space Mono', monospace; font-weight: 700;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .tf-btn:hover { border-color: var(--gold); }
+  .tf-btn.selected.cierto { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); }
+  .tf-btn.selected.falso { background: var(--wrong-bg); border-color: var(--wrong); color: var(--wrong); }
+  .tf-btn.right-answer { box-shadow: 0 0 0 3px rgba(45,110,62,0.3); }
+  .tf-btn.wrong-answer { opacity: 0.4; text-decoration: line-through; }
+
+  /* writing prompt */
+  .writing-prompt {
+    background: var(--cream); border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 20px;
+    border: 1px dashed var(--cream-dark);
+  }
+  .writing-prompt h4 {
+    font-family: 'Playfair Display', serif; color: var(--terracotta);
+    font-size: 1.05rem; margin-bottom: 6px;
+  }
+  .writing-prompt .focus-tag {
+    display: inline-block; font-family: 'Space Mono', monospace;
+    font-size: 0.62rem; color: var(--text-light);
+    background: white; padding: 2px 8px; border-radius: 3px;
+    letter-spacing: 0.04em; margin-left: 6px;
+  }
+  .writing-prompt .prompt-desc {
+    font-size: 0.9rem; margin: 8px 0 14px;
+  }
+  .writing-checklist {
+    background: white; border-radius: 6px;
+    padding: 12px 16px; margin-bottom: 12px;
+  }
+  .writing-checklist h5 {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--navy); letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .writing-checklist label {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 4px 0; font-size: 0.85rem; cursor: pointer;
+  }
+  .writing-checklist input[type="checkbox"] {
+    margin-top: 4px; cursor: pointer; accent-color: var(--terracotta);
+  }
+  .writing-checklist label.checked { color: var(--correct); }
+  .writing-area {
+    width: 100%; border: 2px solid var(--cream-dark);
+    border-radius: 6px; padding: 12px;
+    font-family: 'Source Serif 4', serif; font-size: 0.92rem;
+    line-height: 1.8; resize: vertical; min-height: 120px;
+    background: white;
+  }
+  .writing-area:focus { outline: none; border-color: var(--gold); }
+
+  /* exam strategy cards */
+  .strategy-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px; margin-bottom: 24px;
+  }
+  .strategy-card {
+    background: white; border-radius: 10px; padding: 20px;
+    box-shadow: var(--tile-shadow);
+    border-top: 4px solid var(--gold);
+  }
+  .strategy-card .strat-num {
+    display: inline-block; background: var(--navy); color: white;
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    padding: 3px 10px; border-radius: 4px; margin-bottom: 8px;
+    letter-spacing: 0.06em;
+  }
+  .strategy-card h4 {
+    font-family: 'Playfair Display', serif; color: var(--navy);
+    font-size: 1rem; margin-bottom: 8px;
+  }
+  .strategy-card p {
+    font-size: 0.86rem; line-height: 1.7; color: var(--text);
+  }
+  .strategy-card ul {
+    margin-top: 8px; padding-left: 18px; font-size: 0.85rem;
+  }
+  .strategy-card li { margin-bottom: 4px; }
+
+  /* exam format */
+  .exam-format {
+    background: white; border-radius: 12px;
+    box-shadow: var(--tile-shadow); overflow: hidden; margin-bottom: 24px;
+  }
+  .exam-format-header {
+    background: var(--terracotta); color: white;
+    padding: 14px 24px;
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+  }
+  .exam-format table {
+    width: 100%; border-collapse: collapse;
+  }
+  .exam-format th {
+    background: var(--cream); padding: 12px 16px; text-align: left;
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-light);
+  }
+  .exam-format td {
+    padding: 14px 16px; border-bottom: 1px solid var(--cream-dark);
+    font-size: 0.9rem;
+  }
+  .exam-format tr:last-child td { border-bottom: none; }
+  .exam-format .pts {
+    font-family: 'Space Mono', monospace; font-weight: 700;
+    color: var(--terracotta);
+  }
+
+  /* responsive */
+  @media (max-width: 700px) {
+    .header-inner { padding: 12px 16px; gap: 10px; }
+    .header-title { font-size: 1rem; }
+    .header-subtitle { display: none; }
+    main { padding: 24px 16px 60px; }
+    .week-hero { padding: 24px 20px; }
+    .week-hero h1 { font-size: 1.5rem; }
+    .week-hero::before { font-size: 4rem; right: 20px; }
+    .grammar-body, .exercise-body { padding: 16px; }
+    .schedule-table th, .schedule-table td {
+      padding: 10px 8px; font-size: 0.82rem;
+    }
+    .timing-row { grid-template-columns: 90px 1fr; }
+    .match-row { grid-template-columns: 1fr 70px 1fr; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="header-badge">SPSCC · ESP 122</span>
+    <span class="header-title">Semana 5 — Midterm Review · Capítulos 5–6</span>
+    <span class="header-subtitle">Week 5 · Midterm</span>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="active" onclick="showSection('overview', this)">📋 Overview</button>
+    <button onclick="showSection('vocab', this)">📖 Vocabulario</button>
+    <button onclick="showSection('gramatica', this)">📐 Gramática</button>
+    <button onclick="showSection('ejercicios', this)">✏️ Ejercicios A–G</button>
+    <button onclick="showSection('examen', this)">📝 Examen</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ════════════════════════════════════════ OVERVIEW -->
+<section id="overview" class="active">
+  <div class="week-hero">
+    <h1>Week 5 — Midterm Review &amp; Exam</h1>
+    <p>SPSCC · Spanish 122 · Capítulos 5–6 · Repaso completo + Examen parcial (Thursday)</p>
+    <div class="topic-chips">
+      <span class="chip">5.1 La rutina diaria</span>
+      <span class="chip">5.2 El tiempo · meses · ordinales</span>
+      <span class="chip">6.1 Los viajes — lugares y cosas</span>
+      <span class="chip">6.2 Los viajes — acciones</span>
+      <span class="chip">pretérito regular &amp; irregular</span>
+      <span class="chip">progresivo · ir a · pronombres relativos</span>
+      <span class="chip exam-chip">📝 Midterm Exam · Thursday</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Weekly Schedule</h2>
+  <p class="section-meta">Full Review Chapters 5–6 · Midterm Exam on Thursday</p>
+
+  <table class="schedule-table">
+    <thead>
+      <tr>
+        <th>Day</th><th>Type</th><th>Focus</th><th>Activities</th><th>Homework</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Monday</strong><br><small style="color:var(--text-light);font-family:'Space Mono',monospace;font-size:0.65rem">Lunes</small></td>
+        <td><span class="day-type type-self">Self-Guided</span></td>
+        <td class="day-focus">Ch. 5 Self-Review</td>
+        <td>Complete Review Ejercicios A–B independently; review Video Log 5 for grammar errors; self-assess using Chapter 5 objective checklist</td>
+        <td class="hw-note">Ejercicios A–B due Tuesday; note your 3 weakest areas</td>
+      </tr>
+      <tr>
+        <td><strong>Tuesday</strong><br><small style="color:var(--text-light);font-family:'Space Mono',monospace;font-size:0.65rem">Martes</small></td>
+        <td><span class="day-type type-class">In-Class</span></td>
+        <td class="day-focus">Ch. 6 Review + Activities</td>
+        <td>Guided review of preterite (regular + irregular), progressive, <em>ir a</em>, relative pronouns; group review game</td>
+        <td class="hw-note">Complete Review Ejercicios C–D; study travel vocabulary and connectors</td>
+      </tr>
+      <tr>
+        <td><strong>Wednesday</strong><br><small style="color:var(--text-light);font-family:'Space Mono',monospace;font-size:0.65rem">Miércoles</small></td>
+        <td><span class="day-type type-self">Practice</span></td>
+        <td class="day-focus">Exam Strategies + Practice Questions</td>
+        <td>Complete website practice questions (Ejercicios E–G); review exam format; complete writing drill in class website</td>
+        <td class="hw-note">Final review</td>
+      </tr>
+      <tr>
+        <td><strong>Thursday</strong><br><small style="color:var(--text-light);font-family:'Space Mono',monospace;font-size:0.65rem">Jueves</small></td>
+        <td><span class="day-type type-exam">Midterm Exam</span></td>
+        <td class="day-focus">MIDTERM EXAM</td>
+        <td>Written exam: vocabulary, grammar fill-in, reading comprehension, writing</td>
+        <td class="hw-note">Begin reviewing Ch. 7 Vocabulary and Grammar</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- TUESDAY TIMING -->
+  <div class="timing-box">
+    <div class="timing-header">
+      <h3>Tuesday In-Class Plan</h3>
+      <small>· Martes · En clase</small>
+    </div>
+    <div class="timing-body">
+      <div class="timing-row">
+        <span class="timing-time">0:00–0:30</span>
+        <span><strong>Guided Review — Ch. 5–6 Structures:</strong> Stem-changers, reflexive verbs, <em>gustar/encantar/interesar</em>, <em>tener que</em>, weather, regular preterite, <em>hacer/ir/ser</em> preterite, progressive, <em>ir a</em>, relative pronouns.</span>
+      </div>
+      <div class="timing-row">
+        <span class="timing-time">0:30–1:00</span>
+        <span><strong>Group Review Game:</strong> Teams of 3 answer review questions.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- THURSDAY TIMING -->
+  <div class="timing-box">
+    <div class="timing-header" style="background:var(--terracotta)">
+      <h3>Thursday — Midterm Exam</h3>
+      <small>· Jueves · Examen parcial</small>
+    </div>
+    <div class="timing-body">
+      <div class="timing-row">
+        <span class="timing-time">0:00–0:03</span>
+        <span>Distribute exam materials.</span>
+      </div>
+      <div class="timing-row">
+        <span class="timing-time">0:03–1:05</span>
+        <span><strong>MIDTERM EXAM:</strong> Part 1 — Vocabulary (15 min) | Part 2 — Grammar (20 min) | Part 3 — Reading (10 min) | Part 4 — Writing (15 min, overlap with oral).</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Online Resources — Semana 5</h2>
+  <p class="section-meta">Outside materials for self-guided review</p>
+
+  <div class="resource-grid">
+    <div class="resource-card">
+      <div class="res-day">Mon — Wed</div>
+      <h4>Repaso Capítulos 5–6 (Self-Guided)</h4>
+      <a href="https://www.youtube.com/@spanishpod101/search?query=preterite+review+intermediate" target="_blank">▶ Video: Spanish 2 Preterite Review — Regular &amp; Irregular (SpanishPod101)</a>
+      <a href="#vocab" onclick="document.querySelector('nav button:nth-child(2)').click();return false;">📝 Practice: Chapter 5–6 Vocabulary Review (this site)</a>
+    </div>
+    <div class="resource-card">
+      <div class="res-day">Wed</div>
+      <h4>Practice Exam Drill</h4>
+      <a href="#ejercicios" onclick="document.querySelector('nav button:nth-child(4)').click();return false;">📝 Ejercicios A–G — Full Interactive Review</a>
+      <a href="#examen" onclick="document.querySelector('nav button:nth-child(5)').click();return false;">📋 Exam Format &amp; Strategies</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ VOCABULARIO -->
+<section id="vocab">
+  <h2 class="section-title">Vocabulario · Capítulos 5–6</h2>
+  <p class="section-meta">Click any card to flip and see the English meaning</p>
+  <p class="flip-tip">🃏 Tap a card to reveal the answer · vocabulary is split by sub-chapter (5.1, 5.2, 6.1, 6.2)</p>
+
+  <h3 class="subchapter-heading"><span class="subchapter-label">5.1</span>La rutina diaria — Reflexive verbs</h3>
+  <div class="vocab-grid" id="vocab51"></div>
+
+  <h3 class="subchapter-heading"><span class="subchapter-label">5.2a</span>El tiempo — Weather expressions</h3>
+  <div class="vocab-grid" id="vocab52a"></div>
+
+  <h3 class="subchapter-heading"><span class="subchapter-label">5.2b</span>Las estaciones, los meses, los ordinales</h3>
+  <div class="vocab-grid" id="vocab52b"></div>
+
+  <h3 class="subchapter-heading"><span class="subchapter-label">6.1</span>Los viajes — Lugares y cosas</h3>
+  <div class="vocab-grid" id="vocab61"></div>
+
+  <h3 class="subchapter-heading"><span class="subchapter-label">6.2</span>Los viajes — Acciones</h3>
+  <div class="vocab-grid" id="vocab62"></div>
+</section>
+
+<!-- ════════════════════════════════════════ GRAMÁTICA -->
+<section id="gramatica">
+  <h2 class="section-title">Gramática — Quick Review</h2>
+  <p class="section-meta">All major grammar from Chapters 5–6 · review before the exam</p>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 5 · G1</span>
+      <h3>Stem-Changing Verbs (Present)</h3>
+      <span class="gram-subtitle">e→ie · o→ue · e→i</span>
+    </div>
+    <div class="grammar-body">
+      <p>The stem changes in <strong>all forms EXCEPT nosotros/vosotros</strong>. Memorize the pattern with <em>preferir, dormir, vestir</em>.</p>
+      <table class="pronoun-table">
+        <thead><tr><th></th><th>preferir (e→ie)</th><th>dormir (o→ue)</th><th>vestir (e→i)</th></tr></thead>
+        <tbody>
+          <tr><td>yo</td><td>prefiero</td><td>duermo</td><td>visto</td></tr>
+          <tr><td>tú</td><td>prefieres</td><td>duermes</td><td>vistes</td></tr>
+          <tr><td>él/ella</td><td>prefiere</td><td>duerme</td><td>viste</td></tr>
+          <tr><td>nosotros</td><td>preferimos</td><td>dormimos</td><td>vestimos</td></tr>
+          <tr><td>ellos</td><td>prefieren</td><td>duermen</td><td>visten</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 5 · G2</span>
+      <h3>Reflexive Verbs</h3>
+      <span class="gram-subtitle">me · te · se · nos · se</span>
+    </div>
+    <div class="grammar-body">
+      <p>The pronoun goes <strong>before the conjugated verb</strong>. The infinitive form ends in <em>-se</em>.</p>
+      <div class="example-block">
+        <strong>despertarse:</strong> Yo <em>me</em> despierto · Tú <em>te</em> despiertas · Él/Ella <em>se</em> despierta · Nosotros <em>nos</em> despertamos · Ellos <em>se</em> despiertan
+      </div>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 5 · G3</span>
+      <h3>gustar / encantar / interesar</h3>
+      <span class="gram-subtitle">backwards subject + indirect object</span>
+    </div>
+    <div class="grammar-body">
+      <p>The thing liked is the <strong>subject</strong>. The person is the <strong>indirect object</strong>.</p>
+      <table class="pronoun-table">
+        <thead><tr><th>indirect obj.</th><th>verb</th><th>subject</th></tr></thead>
+        <tbody>
+          <tr><td>A mí me</td><td>gusta / encanta / interesa</td><td>el café (sing.)</td></tr>
+          <tr><td>A ti te</td><td>gustan / encantan / interesan</td><td>los libros (plural)</td></tr>
+          <tr><td>A ella le</td><td>gusta</td><td>viajar (infinitive)</td></tr>
+        </tbody>
+      </table>
+      <div class="example-block">
+        <strong>A ella <em>le interesa</em> mucho la lingüística</strong> · <strong>A nosotros <em>nos encantan</em> las películas españolas.</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 5 · G4</span>
+      <h3>tener que + infinitive</h3>
+      <span class="gram-subtitle">obligation</span>
+    </div>
+    <div class="grammar-body">
+      <p>"To have to do something." Conjugate <strong>tener</strong>, then add <strong>que</strong> + infinitive.</p>
+      <div class="example-block">
+        Yo <strong>tengo que</strong> estudiar · Tú <strong>tienes que</strong> trabajar · Nosotros <strong>tenemos que</strong> practicar.
+      </div>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 5 · G5</span>
+      <h3>Weather Expressions</h3>
+      <span class="gram-subtitle">hacer · estar · haber + impersonal</span>
+    </div>
+    <div class="grammar-body">
+      <table class="pronoun-table">
+        <thead><tr><th>Pattern</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td>Hace + noun</td><td>hace sol, hace calor, hace frío, hace viento</td></tr>
+          <tr><td>Está + adjective</td><td>está nublado, está despejado, está lloviendo, está nevando</td></tr>
+          <tr><td>Hay + noun</td><td>hay niebla, hay tormenta, hay granizo</td></tr>
+          <tr><td>Verb directly</td><td>llueve, nieva</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 6 · G1</span>
+      <h3>Regular Preterite</h3>
+      <span class="gram-subtitle">-ar / -er / -ir endings</span>
+    </div>
+    <div class="grammar-body">
+      <table class="pronoun-table">
+        <thead><tr><th></th><th>viajar (-ar)</th><th>comer (-er)</th><th>vivir (-ir)</th></tr></thead>
+        <tbody>
+          <tr><td>yo</td><td>viajé</td><td>comí</td><td>viví</td></tr>
+          <tr><td>tú</td><td>viajaste</td><td>comiste</td><td>viviste</td></tr>
+          <tr><td>él/ella</td><td>viajó</td><td>comió</td><td>vivió</td></tr>
+          <tr><td>nosotros</td><td>viajamos</td><td>comimos</td><td>vivimos</td></tr>
+          <tr><td>ellos</td><td>viajaron</td><td>comieron</td><td>vivieron</td></tr>
+        </tbody>
+      </table>
+      <div class="example-block">
+        ⚠ Spelling: <em>llegar → llegué</em> · <em>buscar → busqué</em> · <em>empezar → empecé</em> (yo form only).
+      </div>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 6 · G2</span>
+      <h3>Irregular Preterite — hacer / ir / ser</h3>
+      <span class="gram-subtitle">memorize these!</span>
+    </div>
+    <div class="grammar-body">
+      <table class="pronoun-table">
+        <thead><tr><th></th><th>hacer</th><th>ir / ser (identical)</th></tr></thead>
+        <tbody>
+          <tr><td>yo</td><td>hice</td><td>fui</td></tr>
+          <tr><td>tú</td><td>hiciste</td><td>fuiste</td></tr>
+          <tr><td>él/ella</td><td>hizo</td><td>fue</td></tr>
+          <tr><td>nosotros</td><td>hicimos</td><td>fuimos</td></tr>
+          <tr><td>ellos</td><td>hicieron</td><td>fueron</td></tr>
+        </tbody>
+      </table>
+      <div class="example-block">
+        ⚠ <em>hacer</em> in 3rd person → <strong>hizo</strong> (with z) — not "hico"!
+      </div>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 6 · G3</span>
+      <h3>Present Progressive</h3>
+      <span class="gram-subtitle">estar + -ando / -iendo</span>
+    </div>
+    <div class="grammar-body">
+      <p>For actions happening <strong>right now</strong>. Conjugate <em>estar</em> + the present participle.</p>
+      <table class="pronoun-table">
+        <thead><tr><th>Verb type</th><th>Ending</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>-ar</td><td>-ando</td><td>hablar → hablando</td></tr>
+          <tr><td>-er / -ir</td><td>-iendo</td><td>comer → comiendo · vivir → viviendo</td></tr>
+          <tr><td>⚠ -er with vowel stem</td><td>-yendo</td><td>leer → leyendo · oír → oyendo</td></tr>
+          <tr><td>⚠ -ir stem-changers</td><td>(stem changes)</td><td>dormir → durmiendo · pedir → pidiendo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 6 · G4</span>
+      <h3>ir a + infinitive</h3>
+      <span class="gram-subtitle">future / planned actions</span>
+    </div>
+    <div class="grammar-body">
+      <p>To express what someone <strong>is going to do</strong>: conjugate <em>ir</em> in present + <strong>a</strong> + infinitive.</p>
+      <div class="example-block">
+        Yo <strong>voy a</strong> viajar · Tú <strong>vas a</strong> estudiar · Ella <strong>va a</strong> dormir · Nosotros <strong>vamos a</strong> visitar · Ellos <strong>van a</strong> recorrer la ciudad.
+      </div>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header">
+      <span class="grammar-icon">CH 6 · G5</span>
+      <h3>Relative Pronouns — que · donde · quien</h3>
+      <span class="gram-subtitle">connect two clauses</span>
+    </div>
+    <div class="grammar-body">
+      <table class="pronoun-table">
+        <thead><tr><th>Pronoun</th><th>Use</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>que</strong></td><td>people OR things</td><td>El hotel <em>que</em> reservé es bonito.</td></tr>
+          <tr><td><strong>donde</strong></td><td>places</td><td>La ciudad <em>donde</em> nací es Lima.</td></tr>
+          <tr><td><strong>quien</strong> / quienes</td><td>people (after a preposition)</td><td>La guía con <em>quien</em> viajamos era buena.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grammar-box">
+    <div class="grammar-header" style="background:linear-gradient(90deg,var(--sage) 0%,var(--sage-light) 100%)">
+      <span class="grammar-icon">CONNECTORS</span>
+      <h3>porque · como · por eso · así que · pero · aunque</h3>
+      <span class="gram-subtitle">linking ideas in writing</span>
+    </div>
+    <div class="grammar-body">
+      <table class="pronoun-table">
+        <thead><tr><th>Connector</th><th>Position</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td><strong>porque</strong></td><td>middle</td><td>cause: <em>Llegamos tarde porque perdimos el vuelo.</em></td></tr>
+          <tr><td><strong>como</strong></td><td>beginning</td><td>cause: <em>Como hacía calor, fuimos al museo.</em></td></tr>
+          <tr><td><strong>por eso / así que</strong></td><td>middle</td><td>result: <em>Llovía mucho, así que nos quedamos.</em></td></tr>
+          <tr><td><strong>pero / aunque</strong></td><td>middle</td><td>contrast: <em>Llovió, pero fue divertido.</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ EJERCICIOS A–G -->
+<section id="ejercicios">
+  <h2 class="section-title">Ejercicios A–G · Repaso completo</h2>
+  <p class="section-meta">All seven review exercises · type your answers and click "Check" to grade</p>
+
+  <!-- ━━━━━━━━━━━━━━━━━ EJERCICIO A -->
+  <div class="exercise-box">
+    <div class="exercise-header">
+      <h3>Ejercicio A Repaso — Verbos Capítulo 5</h3>
+      <small>· stem-changers + reflexives + gustar/encantar/interesar</small>
+    </div>
+    <div class="exercise-body">
+      <div class="exercise-instructions">Fill in with the correct form: stem-changing verb, reflexive verb, or gustar/encantar/interesar. Type the answer; accents are optional.</div>
+      <div id="ejA"></div>
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEjA()">Check</button>
+        <button class="btn btn-reset" onclick="resetEjA()">Reset</button>
+        <span class="score-badge" id="scoreA"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━ EJERCICIO B -->
+  <div class="exercise-box">
+    <div class="exercise-header">
+      <h3>Ejercicio B Repaso — Vocabulario del tiempo + ordinales</h3>
+      <small>· weather expressions + ordinal numbers</small>
+    </div>
+    <div class="exercise-body">
+      <div class="exercise-instructions">Write the correct weather expression OR ordinal number. Some items have two blanks. Multiple answers may be accepted.</div>
+      <div id="ejB"></div>
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEjB()">Check</button>
+        <button class="btn btn-reset" onclick="resetEjB()">Reset</button>
+        <span class="score-badge" id="scoreB"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━ EJERCICIO C -->
+  <div class="exercise-box">
+    <div class="exercise-header">
+      <h3>Ejercicio C Repaso — Pretérito + conectores</h3>
+      <small>· regular and irregular preterite</small>
+    </div>
+    <div class="exercise-body">
+      <div class="exercise-instructions">Complete with the correct preterite form. Some items also need a connector (porque, como, así que, etc.).</div>
+      <div id="ejC"></div>
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEjC()">Check</button>
+        <button class="btn btn-reset" onclick="resetEjC()">Reset</button>
+        <span class="score-badge" id="scoreC"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━ EJERCICIO D -->
+  <div class="exercise-box">
+    <div class="exercise-header">
+      <h3>Ejercicio D Repaso — Progresivo + ir a + pronombres relativos</h3>
+      <small>· mixed Chapter 6 review</small>
+    </div>
+    <div class="exercise-body">
+      <div class="exercise-instructions">Mixed Chapter 6 review — present progressive, <em>ir a</em> + infinitive, and relative pronouns (que, donde, quien).</div>
+      <div id="ejD"></div>
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEjD()">Check</button>
+        <button class="btn btn-reset" onclick="resetEjD()">Reset</button>
+        <span class="score-badge" id="scoreD"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━ EJERCICIO E -->
+  <div class="exercise-box">
+    <div class="exercise-header">
+      <h3>Ejercicio E Repaso — Vocabulario · 5.1 · 5.2 · 6.1 · 6.2</h3>
+      <small>· four sub-chapter sections (Midterm Part 1)</small>
+    </div>
+    <div class="exercise-body">
+      <div class="exercise-instructions">Complete all four sub-chapter sections for a thorough vocabulary review.</div>
+
+      <!-- 5.1 -->
+      <div class="sub-divider">
+        <span class="sub-code">5.1</span><span class="sub-title">La rutina diaria</span>
+        <span class="sub-en">Match each reflexive verb to its English meaning. Type the letter (a–f).</span>
+      </div>
+      <div id="ejE51"></div>
+
+      <!-- 5.2 -->
+      <div class="sub-divider">
+        <span class="sub-code">5.2</span><span class="sub-title">El tiempo, las estaciones, los meses, los ordinales</span>
+        <span class="sub-en">Fill each blank using the English clue.</span>
+      </div>
+      <div id="ejE52"></div>
+
+      <!-- 6.1 -->
+      <div class="sub-divider">
+        <span class="sub-code">6.1</span><span class="sub-title">Los viajes — lugares y cosas</span>
+        <span class="sub-en">Match each travel noun to its English meaning. Type the letter (a–f).</span>
+      </div>
+      <div id="ejE61"></div>
+
+      <!-- 6.2 -->
+      <div class="sub-divider">
+        <span class="sub-code">6.2</span><span class="sub-title">Los viajes — acciones</span>
+        <span class="sub-en">Complete each sentence with the correct verb in the infinitive.</span>
+      </div>
+      <div id="ejE62"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEjE()">Check All Four</button>
+        <button class="btn btn-reset" onclick="resetEjE()">Reset</button>
+        <span class="score-badge" id="scoreE"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━ EJERCICIO F -->
+  <div class="exercise-box">
+    <div class="exercise-header">
+      <h3>Ejercicio F Repaso — Comprensión de Lectura</h3>
+      <small>· integrates 5.1 · 5.2 · 6.1 · 6.2 (Midterm Part 3)</small>
+    </div>
+    <div class="exercise-body">
+      <div class="exercise-instructions">Read the passage carefully — twice if needed. Then complete all three parts.</div>
+
+      <div class="reading-passage">
+        <h4>Mi viaje a Costa Rica</h4>
+        <div class="author">por Ana Ramírez</div>
+        <p>El verano pasado, mi familia y yo <span class="preterite">viajamos</span> a Costa Rica por dos semanas. Antes de salir, <span class="preterite">hice</span> las maletas y <span class="preterite">revisé</span> mi pasaporte tres veces. <span class="preterite">Llegamos</span> al aeropuerto de Seattle muy temprano para facturar el equipaje. Después de un vuelo de seis horas, <span class="preterite">llegamos</span> a San José, nuestro destino. Nos <span class="preterite">alojamos</span> en un hotel pequeño cerca del centro. El primer día, <span class="preterite">hizo</span> mucho calor, así que <span class="preterite">decidimos</span> quedarnos en la piscina del hotel. Al día siguiente, seguimos nuestro itinerario y <span class="preterite">recorrimos</span> un bosque tropical con una guía simpática que hablaba inglés y español perfectamente y conocía bien las plantas medicinales. Allí <span class="preterite">vimos</span> monos, perezosos y mariposas grandes. Mi hermano, que es muy aventurero, <span class="preterite">hizo</span> zip-line por primera vez, pero yo <span class="preterite">preferí</span> caminar por los senderos. La última noche, <span class="preterite">fuimos</span> a una playa hermosa donde <span class="preterite">nadamos</span> y <span class="preterite">vimos</span> el atardecer. Aunque <span class="preterite">llovió</span> un poco el último día, <span class="preterite">fue</span> el mejor viaje de mi vida.</p>
+        <div class="reading-key">Bolded verbs are in the preterite tense · Verbos en negrita = pretérito</div>
+      </div>
+
+      <!-- F PART 1 -->
+      <div class="sub-divider">
+        <span class="sub-code">PART 1</span><span class="sub-title">Preguntas de comprensión</span>
+        <span class="sub-en">Answer each question. Click "Check Answers" to see model responses.</span>
+      </div>
+      <div id="ejF1"></div>
+
+      <!-- F PART 2 -->
+      <div class="sub-divider" style="border-left-color:var(--sage)">
+        <span class="sub-code" style="background:var(--sage)">PART 2</span><span class="sub-title">¿Cierto o falso?</span>
+        <span class="sub-en">Click C (Cierto) or F (Falso) for each statement.</span>
+      </div>
+      <div id="ejF2"></div>
+
+      <!-- F PART 3 -->
+      <div class="sub-divider" style="border-left-color:var(--gold)">
+        <span class="sub-code" style="background:var(--gold);color:var(--navy)">PART 3</span><span class="sub-title">Vocabulario en contexto</span>
+        <span class="sub-en">Find a word or phrase from the reading that means the following.</span>
+      </div>
+      <div id="ejF3"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-check" onclick="checkEjF()">Check Answers</button>
+        <button class="btn btn-reset" onclick="resetEjF()">Reset</button>
+        <span class="score-badge" id="scoreF"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━ EJERCICIO G -->
+  <div class="exercise-box">
+    <div class="exercise-header">
+      <h3>Ejercicio G Repaso — Práctica de Escritura</h3>
+      <small>· Midterm Part 4 · 25 pts · choose ONE prompt</small>
+    </div>
+    <div class="exercise-body">
+      <div class="exercise-instructions">Choose ONE of the two prompts. Write 6–8 complete sentences in Spanish. Use the checklists as self-grading rubrics.</div>
+
+      <div class="writing-prompt">
+        <h4>OPCIÓN A — Un viaje memorable <span class="focus-tag">focus: 5.2 · 6.1 · 6.2 + pretérito</span></h4>
+        <p class="prompt-desc">Describe a memorable trip you took in the past. Where did you go, with whom, what did you do, and how did you feel? Use the preterite tense.</p>
+        <div class="writing-checklist">
+          <h5>Lista de control / Required elements:</h5>
+          <label><input type="checkbox" class="cl-toggle"><span>At least 5 verbs in the preterite tense</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>At least 2 IRREGULAR preterite verbs (ir, ser, hacer, tener, estar, etc.)</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>At least 2 connectors (porque, así que, pero, aunque, también, además)</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>At least 3 vocabulary words from Chapter 6 (el vuelo, la maleta, el hostal, recorrer, etc.)</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>At least 1 relative pronoun (que, donde, con quien)</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>A weather expression (hizo / estaba…)</span></label>
+        </div>
+        <textarea class="writing-area" placeholder="Escribe tu párrafo aquí…"></textarea>
+      </div>
+
+      <div class="writing-prompt">
+        <h4>OPCIÓN B — Mi rutina diaria <span class="focus-tag">focus: 5.1 + presente</span></h4>
+        <p class="prompt-desc">Describe your daily routine on a typical school day. Start with what time you wake up and end with what time you go to bed. Use sequence words to organize your day.</p>
+        <div class="writing-checklist">
+          <h5>Lista de control / Required elements:</h5>
+          <label><input type="checkbox" class="cl-toggle"><span>At least 5 reflexive verbs (despertarse, ducharse, vestirse, peinarse, acostarse…)</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>At least 2 stem-changing verbs (preferir, dormir, poder, querer…)</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>Sequence words: primero, luego, después, finalmente</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>At least 1 sentence using gustar, encantar, or interesar</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>At least 1 sentence using tener que + infinitive</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>Time expressions (a las 7:00, por la mañana, todos los días)</span></label>
+        </div>
+        <textarea class="writing-area" placeholder="Escribe tu párrafo aquí…"></textarea>
+      </div>
+
+      <div class="writing-prompt" style="border-color:var(--terracotta);background:#fde4d4">
+        <h4>✎ Antes de entregar / Before submitting — self-edit</h4>
+        <div class="writing-checklist">
+          <label><input type="checkbox" class="cl-toggle"><span>Did I check verb endings (yo, tú, él/ella, nosotros, ellos)?</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>Do my adjectives agree in gender and number (e.g., una playa hermosa)?</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>Did I use the personal 'a' before people? (Vi a mi tía.)</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>Did I include accent marks where needed? (viajé, comí, salió, fui)</span></label>
+          <label><input type="checkbox" class="cl-toggle"><span>Did I count my sentences — at least 6, no more than 8?</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ EXAMEN -->
+<section id="examen">
+  <h2 class="section-title">Examen Parcial — Format &amp; Strategy</h2>
+  <p class="section-meta">Thursday · 1 hour 5 minutes · 100 points total</p>
+
+  <div class="exam-format">
+    <div class="exam-format-header">📋 Midterm Exam Format / Formato del Examen Parcial</div>
+    <table>
+      <thead>
+        <tr><th>Section</th><th>Content</th><th>Time</th><th>Points</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Part 1: Vocabulary</strong></td>
+          <td>Matching + fill-in from Chapters 5–6</td>
+          <td>15 min</td>
+          <td class="pts">25 pts</td>
+        </tr>
+        <tr>
+          <td><strong>Part 2: Grammar</strong></td>
+          <td>Verb conjugation tables + sentence completion</td>
+          <td>20 min</td>
+          <td class="pts">30 pts</td>
+        </tr>
+        <tr>
+          <td><strong>Part 3: Reading</strong></td>
+          <td>Short paragraph in Spanish — comprehension questions</td>
+          <td>10 min</td>
+          <td class="pts">20 pts</td>
+        </tr>
+        <tr>
+          <td><strong>Part 4: Writing</strong></td>
+          <td>6–8 sentences describing a past trip or daily routine</td>
+          <td>15 min</td>
+          <td class="pts">25 pts</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title">Strategy by Section</h2>
+  <p class="section-meta">Tips to maximize your score in each part</p>
+
+  <div class="strategy-grid">
+    <div class="strategy-card">
+      <span class="strat-num">PART 1 · VOCAB</span>
+      <h4>Sub-Chapter Sweep</h4>
+      <p>The vocab list is split into 5.1 (routine), 5.2 (weather/months/ordinals), 6.1 (travel nouns), 6.2 (travel verbs). Run flip cards in order before the exam.</p>
+      <ul>
+        <li>Cross off words you nail on the first try</li>
+        <li>Spend extra time on the smallest list — it's easiest to master</li>
+        <li>Watch for spelling: <em>séptimo, décimo</em> with accents</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card">
+      <span class="strat-num">PART 2 · GRAMMAR</span>
+      <h4>Conjugation Discipline</h4>
+      <p>Most points are won/lost here. Memorize the irregular preterite table cold: <em>hacer / ir / ser</em>.</p>
+      <ul>
+        <li><em>hacer</em>: hice, hiciste, <strong>hizo</strong> (with z!), hicimos, hicieron</li>
+        <li><em>ir = ser</em> in preterite: fui, fuiste, fue, fuimos, fueron</li>
+        <li>For reflexives: pronoun BEFORE conjugated verb (<em>me despierto</em>, not <em>despierto me</em>)</li>
+        <li>For <em>gustar</em>: thing liked = subject; person = indirect object</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card">
+      <span class="strat-num">PART 3 · READING</span>
+      <h4>Read Twice, Skim First</h4>
+      <p>10 minutes is tight. Skim the questions BEFORE reading the passage so you know what to look for.</p>
+      <ul>
+        <li>First pass: read the passage quickly for general meaning</li>
+        <li>Second pass: scan for specific details that match each question</li>
+        <li>For ¿Cierto o falso?: if any single word is wrong, the whole statement is FALSE</li>
+        <li>Vocab in context: look at the words AROUND the unknown word for clues</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card">
+      <span class="strat-num">PART 4 · WRITING</span>
+      <h4>Hit the Checklist</h4>
+      <p>Pick the prompt that matches your stronger vocabulary. Use the required-elements checklist as a scoring guide.</p>
+      <ul>
+        <li>Open with a strong topic sentence in the right tense</li>
+        <li>Use connectors (<em>porque, así que, pero, aunque</em>) to link ideas</li>
+        <li>Save 2 minutes at the end for self-editing: verb endings, agreement, accents</li>
+        <li>6–8 sentences only — quality over quantity</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title">Common Mistakes to Avoid</h2>
+  <p class="section-meta">Lose-no-points checklist</p>
+
+  <div class="grammar-box">
+    <div class="grammar-body">
+      <ul style="font-size:0.9rem; line-height:2; padding-left:18px">
+        <li>❌ <em>despierto me</em> → ✅ <em>me despierto</em> (reflexive pronoun BEFORE the verb)</li>
+        <li>❌ <em>hico</em> → ✅ <em>hizo</em> (3rd person of <em>hacer</em> uses z, not c)</li>
+        <li>❌ <em>fuí</em> → ✅ <em>fui</em> (no accent on <em>fui</em> or <em>fue</em>)</li>
+        <li>❌ <em>llegé</em> → ✅ <em>llegué</em> (silent <em>u</em> after g + e)</li>
+        <li>❌ <em>me gusta los libros</em> → ✅ <em>me gustan los libros</em> (plural subject = plural verb)</li>
+        <li>❌ <em>tengo que ir</em>... <em>tengo que estudio</em> → ✅ <em>tengo que estudiar</em> (always infinitive after <em>tener que</em>)</li>
+        <li>❌ <em>vi mi tía</em> → ✅ <em>vi <strong>a</strong> mi tía</em> (personal <em>a</em> before people)</li>
+        <li>❌ Forgetting accents on preterite yo/él forms: <em>viaje</em> → <em>viajé</em>, <em>como</em> → <em>comí</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title">Final Pre-Exam Checklist</h2>
+  <p class="section-meta">Tick these the night before the exam</p>
+
+  <div class="writing-prompt" style="background:white;border:2px solid var(--gold)">
+    <div class="writing-checklist">
+      <label><input type="checkbox" class="cl-toggle"><span>I can list 5.1, 5.2, 6.1, 6.2 vocabulary out loud without looking</span></label>
+      <label><input type="checkbox" class="cl-toggle"><span>I can conjugate <em>hacer / ir / ser</em> in preterite for all five subjects</span></label>
+      <label><input type="checkbox" class="cl-toggle"><span>I can write a 6–8 sentence paragraph describing a past trip OR my daily routine</span></label>
+      <label><input type="checkbox" class="cl-toggle"><span>I completed Ejercicios A–G on this site with ≥85% accuracy</span></label>
+      <label><input type="checkbox" class="cl-toggle"><span>I reviewed the "Common Mistakes" list above</span></label>
+      <label><input type="checkbox" class="cl-toggle"><span>I got at least 7 hours of sleep before the exam (✏️ Antes del examen)</span></label>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// ─────────────────────────────────────────────
+// NAVIGATION
+// ─────────────────────────────────────────────
+function showSection(id, btn) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ─────────────────────────────────────────────
+// NORMALIZE — strip accents for answer checking
+// ─────────────────────────────────────────────
+function normalize(s) {
+  return (s || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+// ─────────────────────────────────────────────
+// VOCAB CARDS — 5.1 / 5.2 / 6.1 / 6.2
+// ─────────────────────────────────────────────
+function buildCards(data, containerId) {
+  const grid = document.getElementById(containerId);
+  data.forEach(([es, en]) => {
+    const card = document.createElement('div');
+    card.className = 'vocab-card';
+    card.innerHTML = `
+      <div class="vocab-card-inner">
+        <div class="vocab-front">
+          <span class="es">${es}</span>
+          <span class="hint">tap to flip →</span>
+        </div>
+        <div class="vocab-back"><span class="en">${en}</span></div>
+      </div>`;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    grid.appendChild(card);
+  });
+}
+
+const vocab51 = [
+  ['despertarse (e→ie)', 'to wake up'],
+  ['levantarse', 'to get up'],
+  ['ducharse', 'to shower'],
+  ['bañarse', 'to take a bath'],
+  ['afeitarse', 'to shave'],
+  ['maquillarse', 'to put on makeup'],
+  ['vestirse (e→i)', 'to get dressed'],
+  ['peinarse', 'to comb / style hair'],
+  ['cepillarse los dientes', 'to brush teeth'],
+  ['acostarse (o→ue)', 'to go to bed'],
+  ['dormirse (o→ue)', 'to fall asleep'],
+  ['desayunar', 'to have breakfast'],
+];
+
+const vocab52a = [
+  ['Hace sol', "It's sunny"],
+  ['Hace calor', "It's hot"],
+  ['Hace frío', "It's cold"],
+  ['Hace viento', "It's windy"],
+  ['Está nublado', "It's cloudy"],
+  ['Está despejado', "It's clear"],
+  ['Llueve / Está lloviendo', "It rains / It's raining"],
+  ['Nieva / Está nevando', "It snows / It's snowing"],
+  ['Hay niebla', 'There is fog'],
+  ['Hay tormenta', 'There is a storm'],
+  ['Hay granizo', 'There is hail'],
+  ['el pronóstico del tiempo', 'weather forecast'],
+  ['húmedo/a', 'humid'],
+  ['seco/a', 'dry'],
+  ['el grado', 'degree (temperature)'],
+];
+
+const vocab52b = [
+  ['la primavera', 'spring'],
+  ['el verano', 'summer'],
+  ['el otoño', 'autumn / fall'],
+  ['el invierno', 'winter'],
+  ['enero', 'January'],
+  ['febrero', 'February'],
+  ['marzo', 'March'],
+  ['abril', 'April'],
+  ['mayo', 'May'],
+  ['junio', 'June'],
+  ['julio', 'July'],
+  ['agosto', 'August'],
+  ['septiembre', 'September'],
+  ['octubre', 'October'],
+  ['noviembre', 'November'],
+  ['diciembre', 'December'],
+  ['primero/a', 'first'],
+  ['segundo/a', 'second'],
+  ['tercero/a', 'third'],
+  ['cuarto/a', 'fourth'],
+  ['quinto/a', 'fifth'],
+  ['sexto/a', 'sixth'],
+  ['séptimo/a', 'seventh'],
+  ['octavo/a', 'eighth'],
+  ['noveno/a', 'ninth'],
+  ['décimo/a', 'tenth'],
+];
+
+const vocab61 = [
+  ['el vuelo', 'flight'],
+  ['el aeropuerto', 'airport'],
+  ['la maleta', 'suitcase'],
+  ['el equipaje', 'luggage'],
+  ['el pasaporte', 'passport'],
+  ['el billete / el boleto', 'ticket'],
+  ['el alojamiento', 'accommodation'],
+  ['el hotel', 'hotel'],
+  ['el hostal', 'guesthouse'],
+  ['el albergue', 'youth hostel'],
+  ['el crucero', 'cruise ship'],
+  ['el barco', 'boat'],
+  ['el itinerario', 'itinerary'],
+  ['el destino', 'destination'],
+  ['el/la guía turístico/a', 'tour guide'],
+];
+
+const vocab62 = [
+  ['hacer las maletas', 'to pack suitcases'],
+  ['facturar el equipaje', 'to check luggage'],
+  ['pasar por la aduana', 'to go through customs'],
+  ['hacer escala', 'to have a layover'],
+  ['alojarse (en)', 'to stay (at)'],
+  ['recorrer', 'to travel through / tour'],
+];
+
+buildCards(vocab51, 'vocab51');
+buildCards(vocab52a, 'vocab52a');
+buildCards(vocab52b, 'vocab52b');
+buildCards(vocab61, 'vocab61');
+buildCards(vocab62, 'vocab62');
+
+// ─────────────────────────────────────────────
+// SCORE HELPER
+// ─────────────────────────────────────────────
+function showScore(id, correct, total) {
+  const el = document.getElementById(id);
+  el.textContent = `${correct} / ${total}`;
+  const pct = correct / total;
+  el.className = 'score-badge show ' + (pct >= 0.85 ? 'good' : pct >= 0.6 ? 'ok' : 'retry');
+}
+
+// ─────────────────────────────────────────────
+// EJERCICIO A — Verbos Capítulo 5
+// ─────────────────────────────────────────────
+const ejAData = [
+  { before: 'Yo', verb: '(despertarse)', after: 'a las 6:30 todos los días de clase.', accepted: ['me despierto'] },
+  { before: '¿Cuántas horas', verb: '(dormir)', after: 'tú normalmente? ¿Siete u ocho?', accepted: ['duermes'] },
+  { before: 'A ella le', verb: '(interesar)', after: 'mucho la lingüística y los idiomas.', accepted: ['interesa', 'interesan'] },
+  { before: 'Nosotros', verb: '(preferir)', after: 'estudiar en la biblioteca, no en casa.', accepted: ['preferimos'] },
+  { before: 'Los estudiantes', verb: '(vestirse)', after: 'rápido porque llegan tarde.', accepted: ['se visten'] },
+  { before: 'Yo', verb: '(tener que)', after: 'practicar el vocabulario nuevo esta noche.', accepted: ['tengo que'] },
+  { before: 'Hoy', verb: '(nevar)', after: 'en las montañas — es el primer día del invierno.', accepted: ['nieva'] },
+  { before: '¿', verb: '(poder, tú)', after: 'ayudarme con el ejercicio cuatro?', accepted: ['puedes'] },
+];
+
+function buildEjA() {
+  const c = document.getElementById('ejA');
+  ejAData.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'exercise-item';
+    div.innerHTML = `
+      <span class="item-num">${i+1}.</span>
+      <div class="item-text">
+        <div class="fill-sentence">
+          <span>${item.before}</span>
+          <span class="verb-hint">${item.verb}</span>
+          <input class="blank-input" id="eA_${i}" type="text" placeholder="___" autocomplete="off" spellcheck="false">
+          <span>${item.after}</span>
+        </div>
+        <div class="feedback" id="fbA_${i}"></div>
+      </div>`;
+    c.appendChild(div);
+  });
+}
+function checkEjA() {
+  let cor = 0;
+  ejAData.forEach((item, i) => {
+    const inp = document.getElementById(`eA_${i}`);
+    const fb = document.getElementById(`fbA_${i}`);
+    const ok = item.accepted.some(a => normalize(a) === normalize(inp.value));
+    inp.className = 'blank-input ' + (ok ? 'correct-input' : 'wrong-input');
+    document.querySelectorAll('#ejA .exercise-item')[i].className = 'exercise-item ' + (ok ? 'correct' : 'wrong');
+    fb.className = 'feedback show ' + (ok ? 'correct' : 'wrong');
+    fb.textContent = ok ? '✓ ¡Correcto!' : `✗ Answer: ${item.accepted[0]}`;
+    if (ok) cor++;
+  });
+  showScore('scoreA', cor, ejAData.length);
+}
+function resetEjA() {
+  ejAData.forEach((_, i) => {
+    const inp = document.getElementById(`eA_${i}`);
+    inp.value = ''; inp.className = 'blank-input';
+    document.getElementById(`fbA_${i}`).className = 'feedback';
+    document.querySelectorAll('#ejA .exercise-item')[i].className = 'exercise-item';
+  });
+  document.getElementById('scoreA').className = 'score-badge';
+}
+
+// ─────────────────────────────────────────────
+// EJERCICIO B — Vocabulario del tiempo + ordinales
+// ─────────────────────────────────────────────
+const ejBData = [
+  {
+    text: 'En el Caribe en verano: ___ y ___ mucho.',
+    blanks: 2,
+    accepted: [
+      ['hace calor', 'hace sol', 'hace mucho calor', 'hace mucho sol'],
+      ['llueve', 'hace sol', 'hace calor', 'está soleado']
+    ]
+  },
+  {
+    text: 'En Seattle en noviembre: ___.',
+    blanks: 1,
+    accepted: [
+      ['llueve', 'hace frío', 'está nublado', 'llueve mucho', 'está lloviendo']
+    ]
+  },
+  {
+    text: 'Septiembre es el ___ mes del año.',
+    blanks: 1,
+    accepted: [['noveno']]
+  },
+  {
+    text: 'El ___ (4) mes es abril.',
+    blanks: 1,
+    accepted: [['cuarto']]
+  },
+  {
+    text: 'En Madrid en enero: ___ y ___.',
+    blanks: 2,
+    accepted: [
+      ['hace frío', 'nieva', 'está nublado', 'hace mucho frío'],
+      ['nieva', 'hace frío', 'está nublado', 'llueve']
+    ]
+  },
+  {
+    text: 'En Miami en julio: ___ y ___.',
+    blanks: 2,
+    accepted: [
+      ['hace calor', 'hace sol', 'hace mucho calor'],
+      ['hace sol', 'hace calor', 'llueve', 'es húmedo', 'es muy húmedo']
+    ]
+  },
+];
+
+function buildEjB() {
+  const c = document.getElementById('ejB');
+  ejBData.forEach((item, i) => {
+    const parts = item.text.split('___');
+    let html = `<span>${parts[0]}</span>`;
+    for (let b = 0; b < item.blanks; b++) {
+      html += `<input class="blank-input" id="eB_${i}_${b}" type="text" placeholder="___" autocomplete="off" spellcheck="false" style="min-width:140px">`;
+      if (parts[b+1]) html += `<span>${parts[b+1]}</span>`;
+    }
+    const div = document.createElement('div');
+    div.className = 'exercise-item';
+    div.innerHTML = `
+      <span class="item-num">${i+1}.</span>
+      <div class="item-text">
+        <div class="fill-sentence">${html}</div>
+        <div class="feedback" id="fbB_${i}"></div>
+      </div>`;
+    c.appendChild(div);
+  });
+}
+function checkEjB() {
+  let cor = 0;
+  ejBData.forEach((item, i) => {
+    let allOk = true;
+    const got = [];
+    for (let b = 0; b < item.blanks; b++) {
+      const inp = document.getElementById(`eB_${i}_${b}`);
+      const ok = item.accepted[b].some(a => normalize(a) === normalize(inp.value));
+      inp.className = 'blank-input ' + (ok ? 'correct-input' : 'wrong-input');
+      if (!ok) allOk = false;
+      got.push(item.accepted[b][0]);
+    }
+    const fb = document.getElementById(`fbB_${i}`);
+    fb.className = 'feedback show ' + (allOk ? 'correct' : 'wrong');
+    fb.textContent = allOk ? '✓ ¡Correcto!' : `✗ Sample: ${got.join(' / ')}`;
+    document.querySelectorAll('#ejB .exercise-item')[i].className = 'exercise-item ' + (allOk ? 'correct' : 'wrong');
+    if (allOk) cor++;
+  });
+  showScore('scoreB', cor, ejBData.length);
+}
+function resetEjB() {
+  ejBData.forEach((item, i) => {
+    for (let b = 0; b < item.blanks; b++) {
+      const inp = document.getElementById(`eB_${i}_${b}`);
+      if (inp) { inp.value = ''; inp.className = 'blank-input'; }
+    }
+    document.getElementById(`fbB_${i}`).className = 'feedback';
+    document.querySelectorAll('#ejB .exercise-item')[i].className = 'exercise-item';
+  });
+  document.getElementById('scoreB').className = 'score-badge';
+}
+
+// ─────────────────────────────────────────────
+// EJERCICIO C — Pretérito + conectores
+// ─────────────────────────────────────────────
+const ejCData = [
+  {
+    text: 'Ayer yo ___ al aeropuerto a recoger a mi tía.',
+    hint: '(ir)',
+    blanks: 1,
+    accepted: [['fui']]
+  },
+  {
+    text: '¿Qué ___ durante las últimas vacaciones?',
+    hint: '(hacer, tú)',
+    blanks: 1,
+    accepted: [['hiciste']]
+  },
+  {
+    text: 'Ella ___ la mejor guía turística de todo el grupo.',
+    hint: '(ser)',
+    blanks: 1,
+    accepted: [['fue']]
+  },
+  {
+    text: 'Nosotros ___ tarde, ___ perdimos el vuelo.',
+    hint: '(llegar) + connector',
+    blanks: 2,
+    accepted: [
+      ['llegamos'],
+      ['así que', 'por eso']
+    ]
+  },
+  {
+    text: '___ hacía mucho calor, decidimos visitar el museo en lugar de la playa.',
+    hint: 'connector',
+    blanks: 1,
+    accepted: [['como']]
+  },
+  {
+    text: 'Ellos ___ la ciudad entera en un día.',
+    hint: '(recorrer)',
+    blanks: 1,
+    accepted: [['recorrieron']]
+  },
+];
+
+function buildEjC() {
+  const c = document.getElementById('ejC');
+  ejCData.forEach((item, i) => {
+    const parts = item.text.split('___');
+    let html = `<span>${parts[0]}</span>`;
+    for (let b = 0; b < item.blanks; b++) {
+      html += `<input class="blank-input" id="eC_${i}_${b}" type="text" placeholder="___" autocomplete="off" spellcheck="false" style="min-width:130px">`;
+      if (parts[b+1]) html += `<span>${parts[b+1]}</span>`;
+    }
+    const div = document.createElement('div');
+    div.className = 'exercise-item';
+    div.innerHTML = `
+      <span class="item-num">${i+1}.</span>
+      <div class="item-text">
+        <div class="fill-sentence">${html}<span class="verb-hint" style="margin-left:8px">${item.hint}</span></div>
+        <div class="feedback" id="fbC_${i}"></div>
+      </div>`;
+    c.appendChild(div);
+  });
+}
+function checkEjC() {
+  let cor = 0;
+  ejCData.forEach((item, i) => {
+    let allOk = true;
+    const got = [];
+    for (let b = 0; b < item.blanks; b++) {
+      const inp = document.getElementById(`eC_${i}_${b}`);
+      const ok = item.accepted[b].some(a => normalize(a) === normalize(inp.value));
+      inp.className = 'blank-input ' + (ok ? 'correct-input' : 'wrong-input');
+      if (!ok) allOk = false;
+      got.push(item.accepted[b][0]);
+    }
+    const fb = document.getElementById(`fbC_${i}`);
+    fb.className = 'feedback show ' + (allOk ? 'correct' : 'wrong');
+    fb.textContent = allOk ? '✓ ¡Correcto!' : `✗ Answer: ${got.join(' / ')}`;
+    document.querySelectorAll('#ejC .exercise-item')[i].className = 'exercise-item ' + (allOk ? 'correct' : 'wrong');
+    if (allOk) cor++;
+  });
+  showScore('scoreC', cor, ejCData.length);
+}
+function resetEjC() {
+  ejCData.forEach((item, i) => {
+    for (let b = 0; b < item.blanks; b++) {
+      const inp = document.getElementById(`eC_${i}_${b}`);
+      if (inp) { inp.value = ''; inp.className = 'blank-input'; }
+    }
+    document.getElementById(`fbC_${i}`).className = 'feedback';
+    document.querySelectorAll('#ejC .exercise-item')[i].className = 'exercise-item';
+  });
+  document.getElementById('scoreC').className = 'score-badge';
+}
+
+// ─────────────────────────────────────────────
+// EJERCICIO D — Progresivo + ir a + relativos
+// ─────────────────────────────────────────────
+const ejDData = [
+  { text: 'Ahora mismo ella ___ las maletas para su viaje mañana.', hint: '(hacer — progressive)', accepted: ['está haciendo'] },
+  { text: 'El próximo año yo ___ a Argentina.', hint: '(ir a + viajar)', accepted: ['voy a viajar'] },
+  { text: 'La excursión ___ hicimos por el río fue la mejor del viaje.', hint: 'relative pronoun', accepted: ['que'] },
+  { text: 'El hostal ___ nos alojamos tenía vistas al mar.', hint: 'relative pronoun', accepted: ['donde'] },
+  { text: '¿Qué ___ en el avión — una novela o revistas?', hint: '(leer, tú — progressive)', accepted: ['estás leyendo', 'estuviste leyendo'] },
+  { text: 'La guía con ___ viajamos hablaba cuatro idiomas perfectamente.', hint: 'relative pronoun', accepted: ['quien'] },
+];
+
+function buildEjD() {
+  const c = document.getElementById('ejD');
+  ejDData.forEach((item, i) => {
+    const parts = item.text.split('___');
+    const div = document.createElement('div');
+    div.className = 'exercise-item';
+    div.innerHTML = `
+      <span class="item-num">${i+1}.</span>
+      <div class="item-text">
+        <div class="fill-sentence">
+          <span>${parts[0]}</span>
+          <input class="blank-input" id="eD_${i}" type="text" placeholder="___" autocomplete="off" spellcheck="false" style="min-width:140px">
+          <span>${parts[1] || ''}</span>
+          <span class="verb-hint" style="margin-left:8px">${item.hint}</span>
+        </div>
+        <div class="feedback" id="fbD_${i}"></div>
+      </div>`;
+    c.appendChild(div);
+  });
+}
+function checkEjD() {
+  let cor = 0;
+  ejDData.forEach((item, i) => {
+    const inp = document.getElementById(`eD_${i}`);
+    const ok = item.accepted.some(a => normalize(a) === normalize(inp.value));
+    inp.className = 'blank-input ' + (ok ? 'correct-input' : 'wrong-input');
+    const fb = document.getElementById(`fbD_${i}`);
+    fb.className = 'feedback show ' + (ok ? 'correct' : 'wrong');
+    fb.textContent = ok ? '✓ ¡Correcto!' : `✗ Answer: ${item.accepted[0]}`;
+    document.querySelectorAll('#ejD .exercise-item')[i].className = 'exercise-item ' + (ok ? 'correct' : 'wrong');
+    if (ok) cor++;
+  });
+  showScore('scoreD', cor, ejDData.length);
+}
+function resetEjD() {
+  ejDData.forEach((_, i) => {
+    const inp = document.getElementById(`eD_${i}`);
+    inp.value = ''; inp.className = 'blank-input';
+    document.getElementById(`fbD_${i}`).className = 'feedback';
+    document.querySelectorAll('#ejD .exercise-item')[i].className = 'exercise-item';
+  });
+  document.getElementById('scoreD').className = 'score-badge';
+}
+
+// ─────────────────────────────────────────────
+// EJERCICIO E — Vocab review by sub-chapter
+// ─────────────────────────────────────────────
+// 5.1 — matching
+const ejE51_left = [
+  { sp: 'despertarse', accepted: ['b'] },
+  { sp: 'ducharse', accepted: ['d'] },
+  { sp: 'vestirse', accepted: ['f'] },
+  { sp: 'peinarse', accepted: ['a'] },
+  { sp: 'cepillarse los dientes', accepted: ['c'] },
+  { sp: 'acostarse', accepted: ['e'] },
+];
+const ejE51_right = ['to comb / style hair','to wake up','to brush teeth','to shower','to go to bed','to get dressed'];
+
+// 5.2 — fill-in
+const ejE52 = [
+  { text: 'Cuando ___ a 32 grados Fahrenheit (0 °C), el agua se congela.', hint: '(it is cold)', accepted: ['hace frío'] },
+  { text: '___ es el primer mes del año.', hint: '(month name)', accepted: ['enero'] },
+  { text: 'Octubre es el ___ mes del año.', hint: '(ordinal)', accepted: ['décimo'] },
+  { text: 'Después del invierno viene la ___.', hint: '(season)', accepted: ['primavera'] },
+  { text: 'Cuando hay mucha ___, no se puede manejar bien por la mañana.', hint: '(fog)', accepted: ['niebla'] },
+  { text: 'El ___ del tiempo dice que va a llover mañana.', hint: '(forecast)', accepted: ['pronóstico'] },
+];
+
+// 6.1 — matching
+const ejE61_left = [
+  { sp: 'el vuelo', accepted: ['b'] },
+  { sp: 'el aeropuerto', accepted: ['e'] },
+  { sp: 'la maleta', accepted: ['c'] },
+  { sp: 'el pasaporte', accepted: ['f'] },
+  { sp: 'el itinerario', accepted: ['a'] },
+  { sp: 'el albergue', accepted: ['d'] },
+];
+const ejE61_right = ['itinerary','flight','suitcase','youth hostel','airport','passport'];
+
+// 6.2 — fill-in
+const ejE62 = [
+  { text: 'Antes de un viaje internacional, hay que ___ las maletas.', hint: '(to pack)', accepted: ['hacer'] },
+  { text: 'En el aeropuerto, debes ___ el equipaje en el mostrador.', hint: '(to check)', accepted: ['facturar'] },
+  { text: 'Cuando llegas a otro país, tienes que ___ por la aduana.', hint: '(to go through)', accepted: ['pasar'] },
+  { text: 'Si el vuelo no es directo, vas a ___ escala en otra ciudad.', hint: '(to make / have)', accepted: ['hacer'] },
+  { text: 'Vamos a ___ la ciudad antigua mañana con la guía.', hint: '(to tour through)', accepted: ['recorrer'] },
+];
+
+function buildEjE() {
+  // 5.1 matching
+  const c51 = document.getElementById('ejE51');
+  ejE51_left.forEach((item, i) => {
+    const row = document.createElement('div');
+    row.className = 'match-row';
+    row.innerHTML = `
+      <span class="match-spanish">${i+1}. ${item.sp}</span>
+      <input class="match-input" id="eE51_${i}" type="text" maxlength="1" autocomplete="off" spellcheck="false">
+      <span class="match-english"><span class="match-letter">${'abcdef'[i]}.</span> ${ejE51_right[i]}</span>`;
+    c51.appendChild(row);
+  });
+
+  // 5.2 fill-in
+  const c52 = document.getElementById('ejE52');
+  ejE52.forEach((item, i) => {
+    const parts = item.text.split('___');
+    const div = document.createElement('div');
+    div.className = 'exercise-item';
+    div.innerHTML = `
+      <span class="item-num">${i+1}.</span>
+      <div class="item-text">
+        <div class="fill-sentence">
+          <span>${parts[0]}</span>
+          <input class="blank-input" id="eE52_${i}" type="text" placeholder="___" autocomplete="off" spellcheck="false">
+          <span>${parts[1] || ''}</span>
+          <span class="verb-hint" style="margin-left:8px">${item.hint}</span>
+        </div>
+        <div class="feedback" id="fbE52_${i}"></div>
+      </div>`;
+    c52.appendChild(div);
+  });
+
+  // 6.1 matching
+  const c61 = document.getElementById('ejE61');
+  ejE61_left.forEach((item, i) => {
+    const row = document.createElement('div');
+    row.className = 'match-row';
+    row.innerHTML = `
+      <span class="match-spanish">${i+1}. ${item.sp}</span>
+      <input class="match-input" id="eE61_${i}" type="text" maxlength="1" autocomplete="off" spellcheck="false">
+      <span class="match-english"><span class="match-letter">${'abcdef'[i]}.</span> ${ejE61_right[i]}</span>`;
+    c61.appendChild(row);
+  });
+
+  // 6.2 fill-in
+  const c62 = document.getElementById('ejE62');
+  ejE62.forEach((item, i) => {
+    const parts = item.text.split('___');
+    const div = document.createElement('div');
+    div.className = 'exercise-item';
+    div.innerHTML = `
+      <span class="item-num">${i+1}.</span>
+      <div class="item-text">
+        <div class="fill-sentence">
+          <span>${parts[0]}</span>
+          <input class="blank-input" id="eE62_${i}" type="text" placeholder="___" autocomplete="off" spellcheck="false">
+          <span>${parts[1] || ''}</span>
+          <span class="verb-hint" style="margin-left:8px">${item.hint}</span>
+        </div>
+        <div class="feedback" id="fbE62_${i}"></div>
+      </div>`;
+    c62.appendChild(div);
+  });
+}
+
+function checkEjE() {
+  let cor = 0;
+  // 5.1
+  ejE51_left.forEach((item, i) => {
+    const inp = document.getElementById(`eE51_${i}`);
+    const ok = item.accepted.includes((inp.value || '').trim().toLowerCase());
+    inp.className = 'match-input ' + (ok ? 'correct-input' : 'wrong-input');
+    if (ok) cor++;
+  });
+  // 5.2
+  ejE52.forEach((item, i) => {
+    const inp = document.getElementById(`eE52_${i}`);
+    const fb = document.getElementById(`fbE52_${i}`);
+    const ok = item.accepted.some(a => normalize(a) === normalize(inp.value));
+    inp.className = 'blank-input ' + (ok ? 'correct-input' : 'wrong-input');
+    fb.className = 'feedback show ' + (ok ? 'correct' : 'wrong');
+    fb.textContent = ok ? '✓' : `✗ Answer: ${item.accepted[0]}`;
+    if (ok) cor++;
+  });
+  // 6.1
+  ejE61_left.forEach((item, i) => {
+    const inp = document.getElementById(`eE61_${i}`);
+    const ok = item.accepted.includes((inp.value || '').trim().toLowerCase());
+    inp.className = 'match-input ' + (ok ? 'correct-input' : 'wrong-input');
+    if (ok) cor++;
+  });
+  // 6.2
+  ejE62.forEach((item, i) => {
+    const inp = document.getElementById(`eE62_${i}`);
+    const fb = document.getElementById(`fbE62_${i}`);
+    const ok = item.accepted.some(a => normalize(a) === normalize(inp.value));
+    inp.className = 'blank-input ' + (ok ? 'correct-input' : 'wrong-input');
+    fb.className = 'feedback show ' + (ok ? 'correct' : 'wrong');
+    fb.textContent = ok ? '✓' : `✗ Answer: ${item.accepted[0]}`;
+    if (ok) cor++;
+  });
+  const total = ejE51_left.length + ejE52.length + ejE61_left.length + ejE62.length;
+  showScore('scoreE', cor, total);
+}
+
+function resetEjE() {
+  ['eE51_', 'eE61_'].forEach(prefix => {
+    for (let i = 0; i < 6; i++) {
+      const inp = document.getElementById(prefix + i);
+      if (inp) { inp.value = ''; inp.className = 'match-input'; }
+    }
+  });
+  ejE52.forEach((_, i) => {
+    const inp = document.getElementById(`eE52_${i}`);
+    if (inp) { inp.value = ''; inp.className = 'blank-input'; }
+    document.getElementById(`fbE52_${i}`).className = 'feedback';
+  });
+  ejE62.forEach((_, i) => {
+    const inp = document.getElementById(`eE62_${i}`);
+    if (inp) { inp.value = ''; inp.className = 'blank-input'; }
+    document.getElementById(`fbE62_${i}`).className = 'feedback';
+  });
+  document.getElementById('scoreE').className = 'score-badge';
+}
+
+// ─────────────────────────────────────────────
+// EJERCICIO F — Reading Comprehension
+// ─────────────────────────────────────────────
+const ejF1 = [
+  { q: '¿Cuándo y por cuánto tiempo viajó la familia de Ana a Costa Rica?',
+    sample: 'Viajó el verano pasado por dos semanas.' },
+  { q: '¿Cuánto tiempo duró el vuelo a San José?',
+    sample: 'Duró seis horas.' },
+  { q: '¿Qué hicieron el primer día y por qué?',
+    sample: 'Se quedaron en la piscina del hotel porque hizo mucho calor.' },
+  { q: 'Menciona tres animales que la familia vio en el bosque tropical.',
+    sample: 'Vieron monos, perezosos y mariposas grandes.' },
+  { q: '¿Qué hizo el hermano de Ana? ¿Y qué prefirió hacer Ana?',
+    sample: 'Su hermano hizo zip-line por primera vez; Ana prefirió caminar por los senderos.' },
+  { q: '¿Cómo era la guía? Describe dos cosas sobre ella.',
+    sample: 'Era simpática, hablaba inglés y español perfectamente, y conocía bien las plantas medicinales.' },
+];
+
+const ejF2 = [
+  { stmt: 'La familia de Ana viajó a Costa Rica en invierno.', answer: 'F', note: 'viajó en verano' },
+  { stmt: 'Ana hizo zip-line por primera vez.', answer: 'F', note: 'su hermano hizo zip-line' },
+  { stmt: 'La guía hablaba dos idiomas.', answer: 'C', note: '' },
+  { stmt: 'Llovió un poco el último día del viaje.', answer: 'C', note: '' },
+  { stmt: 'A Ana no le gustó el viaje.', answer: 'F', note: 'fue el mejor viaje de su vida' },
+];
+
+const ejF3 = [
+  { en: 'a flight', accepted: ['un vuelo', 'vuelo', 'el vuelo'] },
+  { en: 'the destination', accepted: ['nuestro destino', 'el destino', 'destino'] },
+  { en: 'to check luggage', accepted: ['facturar el equipaje', 'facturar'] },
+  { en: 'the sunset', accepted: ['el atardecer', 'atardecer'] },
+  { en: 'a path or trail', accepted: ['los senderos', 'un sendero', 'sendero', 'senderos'] },
+];
+
+function buildEjF() {
+  // PART 1
+  const c1 = document.getElementById('ejF1');
+  ejF1.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'exercise-item';
+    div.innerHTML = `
+      <span class="item-num">${i+1}.</span>
+      <div class="item-text">
+        <div style="margin-bottom:6px;font-size:0.92rem">${item.q}</div>
+        <textarea class="writing-area" id="eF1_${i}" style="min-height:50px;font-size:0.88rem" placeholder="Escribe tu respuesta…"></textarea>
+        <div class="feedback" id="fbF1_${i}"></div>
+      </div>`;
+    c1.appendChild(div);
+  });
+
+  // PART 2 — true/false
+  const c2 = document.getElementById('ejF2');
+  ejF2.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'tf-row';
+    div.innerHTML = `
+      <span class="tf-statement"><strong>${i+1}.</strong> ${item.stmt}</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" data-q="${i}" data-v="C" onclick="selectTF(${i},'C')">C</button>
+        <button class="tf-btn" data-q="${i}" data-v="F" onclick="selectTF(${i},'F')">F</button>
+      </div>`;
+    c2.appendChild(div);
+    const fb = document.createElement('div');
+    fb.className = 'feedback';
+    fb.id = `fbF2_${i}`;
+    fb.style.marginLeft = '14px';
+    fb.style.marginBottom = '6px';
+    c2.appendChild(fb);
+  });
+
+  // PART 3 — vocab in context
+  const c3 = document.getElementById('ejF3');
+  ejF3.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'exercise-item';
+    div.innerHTML = `
+      <span class="item-num">${i+1}.</span>
+      <div class="item-text">
+        <div class="fill-sentence">
+          <span>${item.en} →</span>
+          <input class="blank-input" id="eF3_${i}" type="text" placeholder="___" autocomplete="off" spellcheck="false" style="min-width:160px">
+        </div>
+        <div class="feedback" id="fbF3_${i}"></div>
+      </div>`;
+    c3.appendChild(div);
+  });
+}
+
+const tfSelections = {};
+function selectTF(i, v) {
+  tfSelections[i] = v;
+  document.querySelectorAll(`.tf-btn[data-q="${i}"]`).forEach(b => {
+    b.classList.remove('selected', 'cierto', 'falso');
+  });
+  const btn = document.querySelector(`.tf-btn[data-q="${i}"][data-v="${v}"]`);
+  btn.classList.add('selected', v === 'C' ? 'cierto' : 'falso');
+}
+
+function checkEjF() {
+  let cor = 0;
+  // Part 1: just reveal sample answers
+  ejF1.forEach((item, i) => {
+    const fb = document.getElementById(`fbF1_${i}`);
+    fb.className = 'feedback show correct';
+    fb.innerHTML = `<strong>Sample answer:</strong> ${item.sample}`;
+  });
+  // Part 2
+  ejF2.forEach((item, i) => {
+    const sel = tfSelections[i];
+    const ok = sel === item.answer;
+    const fb = document.getElementById(`fbF2_${i}`);
+    document.querySelectorAll(`.tf-btn[data-q="${i}"]`).forEach(b => {
+      if (b.dataset.v === item.answer) b.classList.add('right-answer');
+      else if (b.classList.contains('selected')) b.classList.add('wrong-answer');
+    });
+    fb.className = 'feedback show ' + (ok ? 'correct' : 'wrong');
+    fb.textContent = ok
+      ? '✓ ¡Correcto!'
+      : `✗ Correct: ${item.answer}${item.note ? ' — ' + item.note : ''}`;
+    if (ok) cor++;
+  });
+  // Part 3
+  ejF3.forEach((item, i) => {
+    const inp = document.getElementById(`eF3_${i}`);
+    const fb = document.getElementById(`fbF3_${i}`);
+    const ok = item.accepted.some(a => normalize(a) === normalize(inp.value));
+    inp.className = 'blank-input ' + (ok ? 'correct-input' : 'wrong-input');
+    fb.className = 'feedback show ' + (ok ? 'correct' : 'wrong');
+    fb.textContent = ok ? '✓' : `✗ Answer: ${item.accepted[0]}`;
+    if (ok) cor++;
+  });
+  const total = ejF2.length + ejF3.length; // Part 1 not auto-graded
+  showScore('scoreF', cor, total);
+}
+
+function resetEjF() {
+  ejF1.forEach((_, i) => {
+    document.getElementById(`eF1_${i}`).value = '';
+    document.getElementById(`fbF1_${i}`).className = 'feedback';
+  });
+  ejF2.forEach((_, i) => {
+    delete tfSelections[i];
+    document.querySelectorAll(`.tf-btn[data-q="${i}"]`).forEach(b => {
+      b.classList.remove('selected','cierto','falso','right-answer','wrong-answer');
+    });
+    document.getElementById(`fbF2_${i}`).className = 'feedback';
+  });
+  ejF3.forEach((_, i) => {
+    const inp = document.getElementById(`eF3_${i}`);
+    inp.value = ''; inp.className = 'blank-input';
+    document.getElementById(`fbF3_${i}`).className = 'feedback';
+  });
+  document.getElementById('scoreF').className = 'score-badge';
+}
+
+// ─────────────────────────────────────────────
+// CHECKLIST TOGGLE (writing prompts + final checklist)
+// ─────────────────────────────────────────────
+document.addEventListener('change', (e) => {
+  if (e.target.classList.contains('cl-toggle')) {
+    const label = e.target.closest('label');
+    if (label) label.classList.toggle('checked', e.target.checked);
+  }
+});
+
+// ─────────────────────────────────────────────
+// INITIALIZE ALL EXERCISES
+// ─────────────────────────────────────────────
+buildEjA();
+buildEjB();
+buildEjC();
+buildEjD();
+buildEjE();
+buildEjF();
+</script>
+
+</body>
+</html>
